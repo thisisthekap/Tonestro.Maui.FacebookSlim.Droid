@@ -1,0 +1,58 @@
+pr:
+  - master
+
+pool:
+  vmImage: 'macOS-13'
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    useGlobalJson: true
+
+- bash: |
+    echo "##vso[build.updatebuildnumber]pullrequests-tonestro-maui-facebookslim-android-$(Build.SourceBranchName)-$(Build.BuildId)"
+  displayName: Set Build Number
+
+- bash: |
+    sudo dotnet workload restore
+  displayName: Restore Workloads
+
+- bash: |
+    cd java/facebookslim
+    ./gradlew build
+    cd ../..
+  displayName: Gradle Build
+
+- bash: |
+    cd Tonestro.Maui.FacebookSlim.Android
+    dotnet build -c Release
+    dotnet pack -c Release
+    cd ..
+  displayName: Build and Pack
+
+- bash: |
+    cd Tonestro.Maui.FacebookSlim.Android/nugetoutput
+    numberOfNugetFiles=$(ls *.nupkg | wc -l)
+    if [[ numberOfNugetFiles -ne 1 ]]; then
+      echo "WRONG NUMBER OF NUGET FILES: ${numberOfNugetFiles}"
+      exit 1
+    fi
+    eval $(stat -s *.nupkg)
+    if [[ $st_size -lt 1500000 ]]; then
+      echo "NUGET FILE TOO SMALL: ${st_size}"
+      exit 1
+    else
+      echo "NUGET SIZE: ${st_size}"
+    fi
+    cd ../..
+  displayName: Check nuget file
+
+- task: PublishBuildArtifacts@1
+  displayName: publish nugetoutput
+  inputs:
+    PathtoPublish: 'Tonestro.Maui.FacebookSlim.Android/nugetoutput'
+    ArtifactName: 'nugetoutput'
+    publishLocation: 'Container'
+    StoreAsTar: true
