@@ -26,14 +26,14 @@ steps:
   displayName: Gradle Build
 
 - bash: |
-    cd Tonestro.Maui.FacebookSlim.Android
+    cd Tonestro.Maui.FacebookSlim.Droid
     dotnet build -c Release
     dotnet pack -c Release
     cd ..
   displayName: Build and Pack
 
 - bash: |
-    cd Tonestro.Maui.FacebookSlim.Android/nugetoutput
+    cd Tonestro.Maui.FacebookSlim.Droid/nugetoutput
     numberOfNugetFiles=$(ls *.nupkg | wc -l)
     if [[ numberOfNugetFiles -ne 1 ]]; then
       echo "WRONG NUMBER OF NUGET FILES: ${numberOfNugetFiles}"
@@ -52,7 +52,7 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: publish nugetoutput
   inputs:
-    PathtoPublish: 'Tonestro.Maui.FacebookSlim.Android/nugetoutput'
+    PathtoPublish: 'Tonestro.Maui.FacebookSlim.Droid/nugetoutput'
     ArtifactName: 'nugetoutput'
     publishLocation: 'Container'
     StoreAsTar: true

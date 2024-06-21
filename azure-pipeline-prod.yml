@@ -33,14 +33,14 @@ steps:
   displayName: Gradle Build
 
 - bash: |
-    cd Tonestro.Maui.FacebookSlim.Android
+    cd Tonestro.Maui.FacebookSlim.Droid
     dotnet build -c Release
     dotnet pack -c Release
     cd ..
   displayName: Build and Pack
 
 - bash: |
-    cd Tonestro.Maui.FacebookSlim.Android/nugetoutput
+    cd Tonestro.Maui.FacebookSlim.Droid/nugetoutput
     numberOfNugetFiles=$(ls *.nupkg | wc -l)
     if [[ numberOfNugetFiles -ne 1 ]]; then
       echo "WRONG NUMBER OF NUGET FILES: ${numberOfNugetFiles}"
@@ -59,23 +59,23 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: publish nugetoutput
   inputs:
-    PathtoPublish: 'Tonestro.Maui.FacebookSlim.Android/nugetoutput'
+    PathtoPublish: 'Tonestro.Maui.FacebookSlim.Droid/nugetoutput'
     ArtifactName: 'nugetoutput'
     publishLocation: 'Container'
     StoreAsTar: true
 
 - bash: |
-    dotnet nuget push Tonestro.Maui.FacebookSlim.Android/nugetoutput/Tonestro.Maui.FacebookSlim.Android.*.nupkg -k "$(nugetOrgApiKey)" -s https://api.nuget.org/v3/index.json
+    dotnet nuget push Tonestro.Maui.FacebookSlim.Droid/nugetoutput/Tonestro.Maui.FacebookSlim.Droid.*.nupkg -k "$(nugetOrgApiKey)" -s https://api.nuget.org/v3/index.json
 
 - task: GitHubRelease@1
   inputs:
     gitHubConnection: 'github.com_thisisthekap'
-    repositoryName: 'thisisthekap/Tonestro.Maui.FacebookSlim.Android'
+    repositoryName: 'thisisthekap/Tonestro.Maui.FacebookSlim.Droid'
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'userSpecifiedTag'
     tag: '$(Build.SourceBranchName)'
-    title: 'Tonestro.Maui.FacebookSlim.Android $(bindingsVersion)'
-    assets: 'Tonestro.Maui.FacebookSlim.Android/nugetoutput/Tonestro.Maui.FacebookSlim.Android.*.nupkg'
+    title: 'Tonestro.Maui.FacebookSlim.Droid $(bindingsVersion)'
+    assets: 'Tonestro.Maui.FacebookSlim.Droid/nugetoutput/Tonestro.Maui.FacebookSlim.Droid.*.nupkg'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'issueBased'
