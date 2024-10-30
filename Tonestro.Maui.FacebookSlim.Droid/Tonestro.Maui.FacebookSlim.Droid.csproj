@@ -31,18 +31,16 @@
         <PackageReference Include="Xamarin.AndroidX.Core.Core.Ktx" Version="1.9.0.1"/>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Maui.BindingExtensions" Version="0.0.1-pre4">
+       <PackageReference Include="CommunityToolkit.Maui.NativeLibraryInterop.BuildTasks" Version="0.0.1-pre1">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
-        <GradleProjectReference Include="../java/facebookslim">
+        <NLIGradleProjectReference Include="../java/facebookslim">
             <ModuleName>facebookslim</ModuleName>
             <Bind>true</Bind>
             <Pack>true</Pack>
-        </GradleProjectReference>
-    </ItemGroup>
-    <ItemGroup>
+        </NLIGradleProjectReference>
         <AndroidLibrary Include="../java/facebookslim/facebookslim/build/outputs/deps/facebook-*.aar">
             <Bind>false</Bind>
             <Pack>true</Pack>
