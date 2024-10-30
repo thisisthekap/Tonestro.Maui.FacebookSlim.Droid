@@ -15,23 +15,11 @@
         <PackageOutputPath>nugetoutput</PackageOutputPath>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.AndroidX.Activity" Version="1.6.0.1"/>
-        <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.0.0.1"/>
-        <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.17"/>
-        <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.5.3.1"/>
-        <PackageReference Include="Xamarin.AndroidX.Legacy.Support.Core.Utils" Version="1.0.0.15"/>
-        <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.15"/>
-        <PackageReference Include="Xamarin.Google.Android.InstallReferrer" Version="1.0.0.1"/>
-        <PackageReference Include="Xamarin.Google.Guava" Version="31.1.0.4"/>
-        <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.5.0.1"/>
-        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.5"/>
-        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.4.0.6"/>
-        <PackageReference Include="Xamarin.Google.ZXing.Core" Version="3.3.3"/>
-        <PackageReference Include="Xamarin.Kotlin.StdLib" Version="1.7.20.1"/>
-        <PackageReference Include="Xamarin.AndroidX.Core.Core.Ktx" Version="1.9.0.1"/>
+        <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.5" />
+        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.4.0.6" />
     </ItemGroup>
     <ItemGroup>
-       <PackageReference Include="CommunityToolkit.Maui.NativeLibraryInterop.BuildTasks" Version="0.0.1-pre1">
+        <PackageReference Include="CommunityToolkit.Maui.NativeLibraryInterop.BuildTasks" Version="0.0.1-pre1">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
     </ItemGroup>
