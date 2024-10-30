@@ -10,6 +10,6 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Tonestro.Maui.FacebookSlim.Droid" Version="15.1.0.8" />
+    <ProjectReference Include="..\Tonestro.Maui.FacebookSlim.Droid\Tonestro.Maui.FacebookSlim.Droid.csproj" />
   </ItemGroup>
 </Project>
