@@ -8,7 +8,7 @@
     <PropertyGroup>
         <IsPackable>true</IsPackable>
         <PackageId>Tonestro.Maui.FacebookSlim.Droid</PackageId>
-        <Version>17.0.2.1</Version>
+        <Version>17.0.2.2</Version>
         <Description>Contains bindings for https://github.com/facebook/facebook-android-sdk</Description>
         <Authors>Christian Kapplmüller, Albilaga Linggra Pradana</Authors>
         <Company>fun.music IT GmbH</Company>
