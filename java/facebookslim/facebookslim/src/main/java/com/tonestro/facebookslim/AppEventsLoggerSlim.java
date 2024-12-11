@@ -3,20 +3,23 @@ package com.tonestro.facebookslim;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+
 import com.facebook.appevents.AppEventsLogger;
 
 public class AppEventsLoggerSlim {
     private final AppEventsLogger logger;
 
-    private AppEventsLoggerSlim(Context context) {
+    private AppEventsLoggerSlim(@NonNull Context context) {
         logger = AppEventsLogger.newLogger(context);
     }
 
-    public static AppEventsLoggerSlim newLogger(Context context) {
+    @NonNull
+    public static AppEventsLoggerSlim newLogger(@NonNull Context context) {
         return new AppEventsLoggerSlim(context);
     }
 
-    public void logEvent(String eventName, Bundle parameters) {
+    public void logEvent(@NonNull String eventName, Bundle parameters) {
         logger.logEvent(eventName, parameters);
     }
 }

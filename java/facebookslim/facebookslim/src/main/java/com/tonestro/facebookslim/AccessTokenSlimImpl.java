@@ -1,5 +1,7 @@
 package com.tonestro.facebookslim;
 
+import androidx.annotation.NonNull;
+
 import java.util.Date;
 
 class AccessTokenSlimImpl implements AccessTokenSlim {
@@ -28,51 +30,61 @@ class AccessTokenSlimImpl implements AccessTokenSlim {
         this.graphDomain = graphDomain;
     }
 
+    @NonNull
     @Override
     public Date getExpires() {
         return expires;
     }
 
+    @NonNull
     @Override
     public String[] getPermissions() {
         return permissions;
     }
 
+    @NonNull
     @Override
     public String[] getDeclinedPermissions() {
         return declinedPermissions;
     }
 
+    @NonNull
     @Override
     public String[] getExpiredPermissions() {
         return expiredPermissions;
     }
 
+    @NonNull
     @Override
     public String getToken() {
         return token;
     }
 
+    @NonNull
     @Override
     public Date getLastRefresh() {
         return lastRefresh;
     }
 
+    @NonNull
     @Override
     public String getApplicationId() {
         return applicationId;
     }
 
+    @NonNull
     @Override
     public String getUserId() {
         return userId;
     }
 
+    @NonNull
     @Override
     public Date getDataAccessExpirationTime() {
         return dataAccessExpirationTime;
     }
 
+    @NonNull
     @Override
     public String getGraphDomain() {
         return graphDomain;

@@ -1,5 +1,7 @@
 package com.tonestro.facebookslim;
 
+import androidx.annotation.NonNull;
+
 import com.facebook.FacebookSdk;
 import com.facebook.LoggingBehavior;
 
@@ -17,7 +19,7 @@ public class FacebookSdkSlim {
         return FacebookSdk.isDebugEnabled();
     }
 
-    public static void addLoggingBehavior(String loggingBehavior) {
+    public static void addLoggingBehavior(@NonNull String loggingBehavior) {
         FacebookSdk.addLoggingBehavior(LoggingBehavior.valueOf(loggingBehavior));
     }
 }
