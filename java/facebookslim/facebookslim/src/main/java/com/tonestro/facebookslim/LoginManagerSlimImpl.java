@@ -21,7 +21,7 @@ class LoginManagerSlimImpl implements LoginManagerSlim {
     private LoginResultListener loginResultListener;
 
     public LoginManagerSlimImpl() {
-        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 if (loginResultListener == null) {
@@ -69,7 +69,7 @@ class LoginManagerSlimImpl implements LoginManagerSlim {
     }
 
     @Override
-    public void login(Activity activity, String[] permissions, LoginResultListener loginResultListener) {
+    public void login(@NonNull Activity activity, @NonNull String[] permissions, @NonNull LoginResultListener loginResultListener) {
         this.loginResultListener = loginResultListener;
         LoginManager.getInstance().logInWithReadPermissions(activity, Arrays.asList(permissions));
     }

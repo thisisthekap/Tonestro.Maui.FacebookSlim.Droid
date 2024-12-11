@@ -1,7 +1,9 @@
 package com.tonestro.facebookslim;
 
+import androidx.annotation.NonNull;
+
 public interface LoginResultListener {
-    void onSuccess(LoginResultSlim loginResult);
+    void onSuccess(@NonNull LoginResultSlim loginResult);
     void onCanceled();
-    void onError(Exception exception);
+    void onError(@NonNull Exception exception);
 }

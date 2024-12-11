@@ -3,8 +3,10 @@ package com.tonestro.facebookslim;
 import android.app.Activity;
 import android.content.Intent;
 
+import androidx.annotation.NonNull;
+
 public interface LoginManagerSlim {
-    void login(Activity activity, String[] permissions, LoginResultListener loginResultListener);
+    void login(@NonNull Activity activity, @NonNull String[] permissions, @NonNull LoginResultListener loginResultListener);
 
     void logout();
 

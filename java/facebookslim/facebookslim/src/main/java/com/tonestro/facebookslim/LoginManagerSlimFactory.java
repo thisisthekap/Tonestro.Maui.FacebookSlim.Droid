@@ -1,10 +1,13 @@
 package com.tonestro.facebookslim;
 
+import androidx.annotation.NonNull;
+
 public class LoginManagerSlimFactory {
     private LoginManagerSlimFactory() {
     }
 
-    public static LoginManagerSlim createInstance(){
+    @NonNull
+    public static LoginManagerSlim createInstance() {
         return new LoginManagerSlimImpl();
     }
 }
